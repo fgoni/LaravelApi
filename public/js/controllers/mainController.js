@@ -8,7 +8,7 @@ angular.module('mainCtrl', [])
 // inject the Comment service into our controller
     .controller('mainController', function($scope, $http, Marca) {
         // object to hold all the data for the new comment form
-        $scope.commentData = {};
+        $scope.marcaData = {};
 
         // loading variable to show the spinning loading icon
         $scope.loading = true;

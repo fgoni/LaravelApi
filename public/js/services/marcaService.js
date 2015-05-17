@@ -24,7 +24,7 @@ angular.module('marcaService', [])
 
             // destroy a comment
             destroy : function(id) {
-                return $http.delete('api/marca/' + id);
+                return $http.delete('api/marcas/' + id);
             }
         }
 

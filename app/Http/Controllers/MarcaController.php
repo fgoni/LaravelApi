@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Marca;
+use Illuminate\Support\Facades\Response;
 use \Input;
 
 class MarcaController extends Controller
@@ -26,7 +27,7 @@ class MarcaController extends Controller
     public function store()
     {
         Marca::create(array(
-            'name' => Input::get('marca'),
+            'name' => Input::get('name'),
         ));
 
         return Response::json(array('success' => true));

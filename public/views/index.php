@@ -72,8 +72,7 @@
     <!-- THE COMMENTS =============================================== -->
     <!-- hide these comments if the loading variable is true -->
     <div class="comment" ng-hide="loading" ng-repeat="marca in marcas">
-        <h3>Marca #{{ marca.id }}
-            <small>by {{ marca.name }}
+        <h3>{{ marca.name }} #{{ marca.id }}
         </h3>
 
         <p><a href="#" ng-click="deleteMarca(marca.id)" class="text-muted">Delete</a></p>
