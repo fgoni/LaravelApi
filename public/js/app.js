@@ -4,4 +4,11 @@
 // public/js/app.js
 
 
-var app = angular.module('laravelApiApp', ['mainCtrl', 'marcaService']);
+var app = angular.module('laravelApiApp', [
+    'marcaController',
+    'personajeController',
+    'programaController',
+    'marcaService',
+    'programaService',
+    'personajeService',
+]);

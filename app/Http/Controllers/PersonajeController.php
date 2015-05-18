@@ -2,9 +2,9 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Personaje;
 use Illuminate\Http\Request;
-use App\Input;
+use \Input;
 
 class PersonajeController extends Controller {
 
@@ -15,17 +15,7 @@ class PersonajeController extends Controller {
 	 */
 	public function index()
 	{
-		//
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+        return Personaje::all();
 	}
 
 	/**
@@ -35,7 +25,11 @@ class PersonajeController extends Controller {
 	 */
 	public function store()
 	{
-		//
+        Personaje::create(array(
+        'name' => Input::get('name'),
+        ));
+
+        return Response::json(array('success' => true));
 	}
 
 	/**
@@ -46,19 +40,8 @@ class PersonajeController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+        return Personaje::find($id);
+    }
 
 	/**
 	 * Update the specified resource in storage.
@@ -79,7 +62,8 @@ class PersonajeController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+        Personaje::destroy($id);
+        return Response::json(array('success' => true));
 	}
 
 }

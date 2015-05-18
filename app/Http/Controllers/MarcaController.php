@@ -15,7 +15,6 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        //
         return Marca::all();
     }
 
@@ -41,7 +40,6 @@ class MarcaController extends Controller
      */
     public function show($id)
     {
-        //
         return Marca::find($id);
     }
 
@@ -64,7 +62,6 @@ class MarcaController extends Controller
      */
     public function destroy($id)
     {
-        //
         Marca::destroy($id);
         return Response::json(array('success' => true));
     }
