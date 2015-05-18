@@ -46,7 +46,8 @@ angular.module('marcaController', [])
 
         // function to handle deleting a comment
         // DELETE A COMMENT ====================================================
-        $scope.deleteMarca = function(id) {
+        $scope.deleteMarca = function(id, $event) {
+            $event.preventDefault();
             $scope.loading = true;
 
             // use the function we created in our service
