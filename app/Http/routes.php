@@ -33,8 +33,21 @@ Route::group(array('prefix' => 'api'), function() {
 
 });
 
+
+//OAUTH ROUTES
+Route::post('oauth/access_token', function() {
+    return Response::json(Authorizer::issueAccessToken());
+});
+
+//SECURE ROUTE EXAMPLE
+Route::get('protected-resource', ['before' => 'oauth', function() {
+   return "ok";
+}]);
+
 // CATCH ALL ROUTE =============================
-// all routes that are not home or api will be redirected to the frontend
+
+
+// // all routes that are not home or api will be redirected to the frontend
 // this allows angular to route them
 Route::any('{path?}', function()
 {
