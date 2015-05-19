@@ -11,4 +11,5 @@ var app = angular.module('laravelApiApp', [
     'marcaService',
     'programaService',
     'personajeService',
+    'mainService'
 ]);

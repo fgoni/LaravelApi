@@ -86,7 +86,7 @@ return [
             'callback'         => function($username, $password){                  
             
                 $credentials = [
-                      'email'    => $username,
+                      'name'    => $username,
                       'password' => $password,
                   ];
                               

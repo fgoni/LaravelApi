@@ -549,6 +549,8 @@
             <div class="container" ng-controller="marcaController">
                 <div class="card">
                     <div class="card-header">
+                        <button class="btn btn-default" ng-click="saveTest()">Save</button>
+                        <button class="btn btn-default" ng-click="getTest()">Get</button>
                     </div>
 
                     <div class="card">
@@ -693,6 +695,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
     <!-- load angular -->
 
     <!-- ANGULAR -->
@@ -705,6 +708,7 @@
     <script src="js/services/marcaService.js"></script>
     <script src="js/services/personajeService.js"></script>
     <script src="js/services/programaService.js"></script>
+    <script src="js/services/mainService.js"></script>
     <!-- load our service -->
     <script src="js/app.js"></script>
     <!-- load our application -->

@@ -3,10 +3,10 @@
  */
 // public/js/controllers/mainCtrl.js
 
-angular.module('marcaController', [])
+angular.module('marcaController', ['ngStorage'])
 
 // inject the Comment service into our controller
-    .controller('marcaController', function($scope, $http, Marca) {
+    .controller('marcaController', function($scope, $http,$localStorage,$sessionStorage, Marca,mainFactory) {
         // object to hold all the data for the new comment form
         $scope.marcaData = {};
         // loading variable to show the spinning loading icon
@@ -21,6 +21,17 @@ angular.module('marcaController', [])
                 $scope.loading = false;
             });
 
+        $scope.saveTest=function(){
+            
+            $localStorage.token="abc";
+        }
+        
+        $scope.getTest=function(){
+           mainFactory.auth("martin","123").success(function(data){
+               console.log(data);
+           });
+            console.log($localStorage.token);
+        }
         // function to handle submitting the form
         // SAVE A COMMENT ================
         $scope.submitMarca = function() {
