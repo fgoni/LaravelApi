@@ -24,8 +24,11 @@ Blade::setEscapedContentTags('<%%', '%%>'); // for escaped data
 Route::get('/', function() {
     return view()->file('views/index.php');
 });
+Route::get('/test', function(){
+   return Hash::make('123'); 
+});
 // API ROUTES ===================================
-Route::group(array('prefix' => 'api'), function() {
+Route::group(array('prefix' => 'api', 'before' => 'oauth'), function() {
 
     Route::resource('marcas', 'MarcaController');
     Route::resource('programas', 'ProgramaController');

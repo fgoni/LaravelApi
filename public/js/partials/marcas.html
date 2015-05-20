@@ -1,3 +1,102 @@
  <header ng-include="template.header"></header>
- <section id="main"></section>
- <aside id="sidebar" ng-include="template.sidebar"></aside>
+
+ <section id="main">
+      <aside id="sidebar" ng-include="template.sidebar"></aside>
+      <section id="content">
+            <div class="container" ng-controller="marcaController">
+                <div class="card">
+                    <div class="card-header">
+                        <button class="btn btn-default" ng-click="saveTest()">Save</button>
+                        <button class="btn btn-default" ng-click="getTest()">Get</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+
+                        <div class="card-body card-padding">
+                            <form class="row" role="form" ng-submit="submitMarca()">
+                                <div class="col-sm-4">
+                                    <div class="form-group fg-line">
+                                        <label class="sr-only" for="exampleInputEmail2">Nombre</label>
+                                        <input type="text" class="form-control input-sm" id="exampleInputEmail2" placeholder="Nombre de la marca" ng-model="marcaData.name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h2></h2>
+                                    <button type="submit" class="btn btn-primary btn-sm m-t-5 waves-effect waves-button waves-float">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="data-table-basic-header" class="bootgrid-header container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12 actionBar">
+                                <div class="search form-group">
+                                    <div class="input-group">
+                                        <span class="md icon input-group-addon glyphicon-search"></span> 
+                                        <input type="text" class="search-field form-control" placeholder="Search" ng-model="search">
+                                    </div>
+                                </div>
+                                <div class="actions btn-group">
+                                    <div class="dropdown btn-group">
+                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                            <span class="dropdown-text">10</span>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li class="active" aria-selected="true">
+                                                <a href="#10" class="dropdown-item dropdown-item-button">10</a>
+                                            </li>
+                                            <li aria-selected="false">
+                                                <a href="#25" class="dropdown-item dropdown-item-button">25</a>
+                                            </li>
+                                            <li aria-selected="false">
+                                                <a href="#50" class="dropdown-item dropdown-item-button">50</a>
+                                            </li><li aria-selected="false">
+                                                <a href="#-1" class="dropdown-item dropdown-item-button">All</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown btn-group"><button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="dropdown-text"><span class="md icon md-view-module"></span></span> <span class="caret"></span></button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li>
+                                                <div class="checkbox">
+                                                    <label class="dropdown-item">
+                                                        <input name="id" type="checkbox" value="1" class="dropdown-item-checkbox" checked="checked"><i class="input-helper"></i> ID</label>
+                                                </div>
+                                            </li><li>
+                                                <div class="checkbox"><label class="dropdown-item"><input name="sender" type="checkbox" value="1" class="dropdown-item-checkbox" checked="checked"><i class="input-helper"></i> Sender</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox"><label class="dropdown-item"><input name="received" type="checkbox" value="1" class="dropdown-item-checkbox" checked="checked"><i class="input-helper"></i> Received</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive" tabindex="0" style="overflow: hidden; outline: none;">
+                        <table id="data-table-basic" class="table table-striped bootgrid-table" aria-busy="false">
+                            <thead>
+                                <tr>
+                                    <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ID</span><span class="md icon"></span></a></th>
+                                    <th data-column-id="name" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Nombre</span><span class="md icon"></span></a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-row-id="0" ng-repeat="marca in marcas| filter:search">
+                                    <td class="text-left">{{ marca.id}}</td>
+                                    <td class="text-left">{{ marca.name}}</td>
+                                    <td><ul class="actions"><li><a href="#" ng-click="deleteMarca(marca.id, $event)"><i class="md md-close"></i></a></li></ul></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><div id="data-table-basic-footer" class="bootgrid-footer container-fluid"><div class="row"><div class="col-sm-6"><ul class="pagination"><li class="first disabled" aria-disabled="true"><a href="#first" class="button"><i class="md md-more-horiz"></i></a></li><li class="prev disabled" aria-disabled="true"><a href="#prev" class="button"><i class="md md-chevron-left"></i></a></li><li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button">1</a></li><li class="page-2" aria-disabled="false" aria-selected="false"><a href="#2" class="button">2</a></li><li class="next" aria-disabled="false"><a href="#next" class="button"><i class="md md-chevron-right"></i></a></li><li class="last" aria-disabled="false"><a href="#last" class="button"><i class="md md-more-horiz"><i></i></i></a></li></ul></div><div class="col-sm-6 infoBar"><div class="infos">Showing 1 to 10 of 20 entries</div></div></div></div>
+                </div>
+            </div>
+        </section>
+ </section>

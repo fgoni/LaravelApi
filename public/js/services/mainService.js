@@ -3,7 +3,7 @@
  */
 angular.module('mainService', [])
 
-    .factory('mainFactory', function ($http) {
+    .factory('mainFactory', function ($http, $localStorage, $location) {
 
         return {
             auth: function (username,password) {
@@ -14,7 +14,12 @@ angular.module('mainService', [])
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: "grant_type=password&client_id=cliente1&client_secret=axb123AsDFs1Asdasdfasd&username="+username+"&password="+password                   
                 });
+            },
+            logout: function(){
+              console.log("logout");
+              delete $localStorage.token;
+              $location.path("/");
             }
-        }
+        };
 
     });

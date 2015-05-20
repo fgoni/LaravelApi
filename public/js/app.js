@@ -14,18 +14,25 @@ var app = angular.module('laravelApiApp', [
     'mainController',
     'mainService',
     'loginController',
-    'ngRoute'
+    'ngRoute',
+    'door3.css'
 ]);
 
 app.config(function($routeProvider){
         
   $routeProvider
   .when('/',{ 
-//     templateUrl:'js/partials/main.html',
+     templateUrl:'js/partials/main.html',
      controller: 'MainController'
   }).when('/login',{ 
      templateUrl:'js/partials/login.html',
-     controller: 'loginController'
+     controller: 'loginController',
+     css: [
+         'vendors/sweet-alert/sweet-alert.min.css',
+         'vendors/animate-css/animate.min.css',
+         'vendors/material-icons/material-design-iconic-font.min.css',
+         'vendors/socicon/socicon.min.css'
+     ]
   }).when('/marcas',{ 
      templateUrl:'js/partials/marcas.html',
      controller: 'marcaController'

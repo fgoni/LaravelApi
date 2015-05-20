@@ -3,11 +3,11 @@
  */
 angular.module('marcaService', [])
 
-    .factory('Marca', function ($http) {
+    .factory('Marca', function ($http, $localStorage) {
 
         return {
             get: function () {
-                return $http.get('api/marcas');
+                return $http.get('api/marcas?access_token='+$localStorage.token);
             },
 
             save: function (data) {
