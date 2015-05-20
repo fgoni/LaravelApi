@@ -11,5 +11,23 @@ var app = angular.module('laravelApiApp', [
     'marcaService',
     'programaService',
     'personajeService',
-    'mainService'
+    'mainController',
+    'mainService',
+    'loginController',
+    'ngRoute'
 ]);
+
+app.config(function($routeProvider){
+        
+  $routeProvider
+  .when('/',{ 
+//     templateUrl:'js/partials/main.html',
+     controller: 'MainController'
+  }).when('/login',{ 
+     templateUrl:'js/partials/login.html',
+     controller: 'loginController'
+  }).when('/marcas',{ 
+     templateUrl:'js/partials/marcas.html',
+     controller: 'marcaController'
+  });
+});
